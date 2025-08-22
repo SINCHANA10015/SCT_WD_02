@@ -7,12 +7,12 @@ function timeToString(time) {
   let diffInHrs = Math.floor(time / 3600000);
   let diffInMin = Math.floor((time % 3600000) / 60000);
   let diffInSec = Math.floor((time % 60000) / 1000);
-  let diffInMs  = Math.floor((time % 1000) / 10); // only 2 digits (0–99)
+  let diffInMs  = Math.floor((time % 1000) / 10);
 
   let formattedHrs = diffInHrs.toString().padStart(2, "0");
   let formattedMin = diffInMin.toString().padStart(2, "0");
   let formattedSec = diffInSec.toString().padStart(2, "0");
-  let formattedMs = diffInMs.toString().padStart(2, "0"); // 2 digits only
+  let formattedMs = diffInMs.toString().padStart(2, "0"); 
 
   return `${formattedHrs}:${formattedMin}:${formattedSec}<span class="ms">.${formattedMs}</span>`;
 }
@@ -23,7 +23,7 @@ function start() {
     timerInterval = setInterval(function() {
       elapsedTime = performance.now() - startTime;
       document.getElementById("time").innerHTML = timeToString(elapsedTime);
-    }, 10); // update every 10ms
+    }, 10); 
     running = true;
   }
 }
@@ -54,3 +54,4 @@ function recordLap() {
     document.getElementById("laps").appendChild(li);
   }
 }
+
